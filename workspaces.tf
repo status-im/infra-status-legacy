@@ -21,8 +21,7 @@ locals {
     }
 
     # Inherits defaults.
-    test = {}
-    prod = {}
+    test = { hosts_count = 1 }
   }
 }
 
