@@ -1,5 +1,5 @@
 ---
-nim_waku_cont_tag: 'deploy-v2-prod'
+nim_waku_cont_tag: 'deploy-status-{{ stage }}'
 nim_waku_cont_name: 'nim-waku'
 
 # Protocols
