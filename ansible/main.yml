@@ -12,6 +12,7 @@
 - name: Configure Waku Nodes
   hosts:
     - status.test
+    - status.prod
   roles:
     - { role: open-ports, tags: open-ports }
     - { role: swap-file,  tags: swap-file  }
