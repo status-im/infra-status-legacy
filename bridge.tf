@@ -3,9 +3,9 @@ module "bridge" {
 
   /* node type */
   name   = "bridge"
+  group  = "bridge"
   env    = local.ws.env
   stage  = local.ws.stage
-  group  = "bridge-${local.ws.env}-${local.ws.stage}"
   domain = var.domain
 
   /* scaling */

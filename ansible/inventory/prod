@@ -13,7 +13,7 @@ node-02.gc-us-central1-a.status.prod hostname=node-02.gc-us-central1-a.status.pr
 node-01.ac-cn-hongkong-c.status.prod
 node-02.ac-cn-hongkong-c.status.prod
 
-[bridge-status-prod]
+[bridge]
 bridge-01.do-ams3.status.prod
 
 [do-ams3]
@@ -25,7 +25,7 @@ node-02.do-ams3.status.prod
 node-01.gc-us-central1-a.status.prod
 node-02.gc-us-central1-a.status.prod
 
-[status-prod]
+[status]
 node-01.ac-cn-hongkong-c.status.prod
 node-01.do-ams3.status.prod
 node-01.gc-us-central1-a.status.prod

@@ -10,19 +10,15 @@
       changed_when: false
 
 - name: Configure Waku Nodes
-  hosts:
-    - status-test
-    - status-prod
+  hosts: status
   roles:
-    - { role: open-ports,      tags: open-ports      }
-    - { role: swap-file,       tags: swap-file       }
-    - { role: nim-waku,        tags: nim-waku        }
+    - { role: open-ports,      tags: open-ports       }
+    - { role: swap-file,       tags: swap-file        }
+    - { role: nim-waku,        tags: nim-waku         }
 
 - name: Configure Waku V1-V2 bridge
-  hosts:
-    - bridge-status-test
-    - bridge-status-prod
+  hosts: bridge
   roles:
-    - { role: open-ports,      tags: open-ports      }
-    - { role: swap-file,       tags: swap-file       }
-    - { role: nim-waku-bridge, tags: nim-waku-bridge }
+    - { role: open-ports,      tags: open-ports       }
+    - { role: swap-file,       tags: swap-file        }
+    - { role: nim-waku-bridge, tags: nim-waku-bridge  }

@@ -9,7 +9,7 @@ node-01.gc-us-central1-a.status.test hostname=node-01.gc-us-central1-a.status.te
 [ac-cn-hongkong-c]
 node-01.ac-cn-hongkong-c.status.test
 
-[bridge-status-test]
+[bridge]
 bridge-01.do-ams3.status.test
 
 [do-ams3]
@@ -19,7 +19,7 @@ node-01.do-ams3.status.test
 [gc-us-central1-a]
 node-01.gc-us-central1-a.status.test
 
-[status-test]
+[status]
 node-01.ac-cn-hongkong-c.status.test
 node-01.do-ams3.status.test
 node-01.gc-us-central1-a.status.test

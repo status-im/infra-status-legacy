@@ -2,9 +2,9 @@ module "hosts" {
   source = "github.com/status-im/infra-tf-multi-provider"
 
   /* node type */
+  group  = "status"
   env    = local.ws.env
   stage  = local.ws.stage
-  group  = "${local.ws.env}-${local.ws.stage}"
   domain = var.domain
 
   /* scaling */
