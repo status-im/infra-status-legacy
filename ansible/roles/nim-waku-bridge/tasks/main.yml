@@ -1,3 +1,4 @@
 ---
 - import_tasks: docker.yml
+- import_tasks: query.yml
 - import_tasks: consul.yml
