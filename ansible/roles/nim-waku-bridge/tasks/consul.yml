@@ -1,0 +1,39 @@
+---
+
+- name: 'Consul service definition - {{ nim_waku_bridge_cont_name }}'
+  include_role: name=consul-service
+  vars:
+    consul_config_name: '{{ nim_waku_bridge_cont_name | replace("-", "_") }}'
+    consul_services:
+      - id: '{{ nim_waku_bridge_cont_name }}'
+        name: '{{ nim_waku_bridge_cont_name }}'
+        port: '{{ nim_waku_bridge_libp2p_port }}'
+        address: '{{ ansible_host }}'
+        tags: ['env:{{ env }}', 'stage:{{ stage }}', 'nim', 'waku', 'bridge']
+        meta:
+          node_enode: '{{ nim_waku_bridge_libp2p_multiaddr | default("unknown") }}'
+        checks:
+          - name: '{{ nim_waku_bridge_cont_name }}-libp2p-health'
+            type: 'tcp'
+            tcp: 'localhost:{{ nim_waku_bridge_libp2p_port }}'
+          - name: '{{ nim_waku_bridge_cont_name }}-devp2p-health'
+            type: 'tcp'
+            tcp: 'localhost:{{ nim_waku_bridge_devp2p_port }}'
+
+      - id: '{{ nim_waku_bridge_cont_name }}-metrics'
+        name: '{{ nim_waku_bridge_cont_name }}-metrics'
+        port: '{{ nim_waku_bridge_metrics_port }}'
+        address: '{{ ansible_local.wireguard.vpn_ip }}'
+        tags: ['env:{{ env }}', 'stage:{{ stage }}', 'nim', 'waku', 'bridge', 'metrics']
+        meta:
+          container: '{{ nim_waku_bridge_cont_name }}'
+        checks:
+          - name: 'beacon-node-metrics-health'
+            type: 'http'
+            http: 'http://localhost:{{ nim_waku_bridge_metrics_port }}/health'
+
+      - id: '{{ nim_waku_bridge_cont_name }}-rpc'
+        name: '{{ nim_waku_bridge_cont_name }}-rpc'
+        port: '{{ nim_waku_bridge_rpc_tcp_port }}'
+        address: '{{ ansible_local.wireguard.vpn_ip }}'
+        tags: ['env:{{ env }}', 'stage:{{ stage }}', 'nim', 'waku', 'bridge', 'rpc']

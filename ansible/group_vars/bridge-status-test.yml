@@ -1,0 +1,26 @@
+---
+nim_waku_bridge_service_name: 'nim-waku-bridge'
+nim_waku_bridge_cont_tag: 'deploy-bridge-{{ stage }}'
+nim_waku_bridge_log_level: 'info'
+nim_waku_bridge_v1_fleet_name: '{{ stage }}'
+
+# Ports
+nim_waku_bridge_libp2p_port: 9000
+nim_waku_bridge_devp2p_port: 30303
+nim_waku_bridge_metrics_port: 8008
+nim_waku_bridge_rpc_tcp_port: 8545
+
+# Node Keys
+#nim_waku_bridge_nodekey_v1: ~
+#nim_waku_bridge_nodekey_v2: ~
+
+# Open LibP2P Ports
+open_ports_default_comment: '{{ nim_waku_bridge_service_name }}'
+open_ports_default_protocol: 'tcp'
+open_ports_default_chain: 'SERVICES'
+open_ports_list:
+  - { port: '{{ nim_waku_bridge_libp2p_port }}' }
+  - { port: '{{ nim_waku_bridge_devp2p_port }}' }
+  - { port: '{{ nim_waku_bridge_metrics_port }}', chain: 'VPN', ipset: 'metrics.hq' }
+  - { port: '{{ nim_waku_bridge_rpc_tcp_port }}', chain: 'VPN', ipset: '{{ env }}.{{ stage }}' }
+

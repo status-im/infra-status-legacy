@@ -1,0 +1,35 @@
+---
+nim_waku_bridge_service_name: 'nim-waku-bridge'
+nim_waku_bridge_service_path: '/docker/{{ nim_waku_bridge_service_name }}'
+nim_waku_bridge_compose_path: '{{ nim_waku_bridge_service_path }}/docker-compose.yml'
+
+nim_waku_bridge_cont_name: '{{ nim_waku_bridge_service_name }}'
+nim_waku_bridge_cont_vol: '{{ nim_waku_bridge_service_path }}/data'
+nim_waku_bridge_cont_tag: 'latest'
+nim_waku_bridge_cont_image: 'statusteam/nim-waku:{{ nim_waku_bridge_cont_tag }}'
+
+# Available: error, warn, info, debug
+nim_waku_bridge_log_level: 'info'
+
+# Node Keys
+#nim_waku_bridge_nodekey_v1: ~
+#nim_waku_bridge_nodekey_v2: ~
+
+# Sync
+nim_waku_bridge_v1_fleet_name: 'test'
+
+# Visibility
+nim_waku_bridge_dns_domain_name: '{{ dns_entry }}'
+nim_waku_bridge_public_address: '{{ ansible_host }}'
+
+# Ports
+nim_waku_bridge_libp2p_port: 9000
+nim_waku_bridge_devp2p_port: 30303
+nim_waku_bridge_metrics_port: 8008
+nim_waku_bridge_rpc_tcp_port: 8545
+nim_waku_bridge_rpc_tcp_addr: '127.0.0.1'
+
+# general container management
+compose_recreate: 'smart'
+compose_state: 'present'
+compose_restart: false

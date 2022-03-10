@@ -1,0 +1,34 @@
+---
+- name: 'Create service folder'
+  file:
+    dest: '{{ nim_waku_bridge_service_path }}'
+    state: 'directory'
+    owner: dockremap
+    group: docker
+    mode: 0775
+
+- name: Create script for calling RPC endpoint
+  template:
+    src: 'rpc.sh.j2'
+    dest: '{{ nim_waku_bridge_service_path }}/rpc.sh'
+    owner: dockremap
+    group: docker
+    mode: 0755
+
+- name: 'Create compose file: {{ nim_waku_bridge_cont_name }}'
+  template:
+    src: 'docker-compose.yml.j2'
+    dest: '{{ nim_waku_bridge_compose_path }}'
+    owner: dockremap
+    group: docker
+    mode: 0644
+
+- name: 'Create container: {{ nim_waku_bridge_cont_name }}'
+  docker_compose:
+    project_src: '{{ nim_waku_bridge_service_path }}'
+    pull: true
+    state: '{{ compose_state }}'
+    restarted: '{{ compose_restart }}'
+    recreate: '{{ compose_recreate }}'
+    # Avoid deprecation warning
+    tls_hostname: 'localhost'
