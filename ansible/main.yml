@@ -9,6 +9,13 @@
     - local_action: command ./versioncheck.py
       changed_when: false
 
+- name: Configure Waku V1-V2 bridge
+  hosts: bridge
+  roles:
+    - { role: open-ports,       tags: open-ports       }
+    - { role: swap-file,        tags: swap-file        }
+    - { role: nim-waku-bridge,  tags: nim-waku-bridge  }
+
 - name: Configure Waku Nodes
   hosts: status
   roles:
@@ -16,10 +23,3 @@
     - { role: swap-file,        tags: swap-file  }
     - { role: nim-waku,         tags: nim-waku   }
     - { role: waku-peers,       tags: waku-peers }
-
-- name: Configure Waku V1-V2 bridge
-  hosts: bridge
-  roles:
-    - { role: open-ports,       tags: open-ports       }
-    - { role: swap-file,        tags: swap-file        }
-    - { role: nim-waku-bridge,  tags: nim-waku-bridge  }
