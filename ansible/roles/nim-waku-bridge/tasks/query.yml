@@ -28,4 +28,5 @@
   set_fact:
     nim_waku_bridge_libp2p_multiaddr: |-
       {{ waku_info.json.result.listenAddresses
-      | reject("contains", "/ws") | first }}
+      | reject("contains", "/ws") | first 
+      | regex_replace('0\.0\.0\.0', ansible_host) }}
