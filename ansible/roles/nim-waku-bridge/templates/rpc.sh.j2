@@ -28,7 +28,7 @@ PAYLOAD="{
 }"
 
 # The jq script checks if error exists and adjusts exit code.
-curl -f -s -X POST \
+curl -sSf -X POST \
     -H "Content-type:application/json" \
     --data "${PAYLOAD}" \
     "${URL}" | \

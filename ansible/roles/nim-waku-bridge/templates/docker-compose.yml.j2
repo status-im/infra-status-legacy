@@ -23,7 +23,7 @@ services:
       --devp2p-tcp-port={{ nim_waku_bridge_devp2p_port }}
       --nat=extip:{{ nim_waku_bridge_public_address }}
       --rpc
-      --rpc-address={{ nim_waku_bridge_rpc_tcp_addr }}
+      --rpc-address=0.0.0.0
       --rpc-port={{ nim_waku_bridge_rpc_tcp_port }}
       --metrics-server
       --metrics-server-port={{ nim_waku_bridge_metrics_port }}
