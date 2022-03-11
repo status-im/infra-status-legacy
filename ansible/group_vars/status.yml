@@ -2,21 +2,19 @@
 nim_waku_cont_tag: 'deploy-status-{{ stage }}'
 nim_waku_cont_name: 'nim-waku'
 nim_waku_dns4_domain_name: '{{ dns_entry }}'
-
 # Protocols
 nim_waku_protocols_enabled: ['relay', 'filter', 'lightpush', 'store']
-
+# Node Key
+nim_waku_node_key: '{{lookup("bitwarden", "fleets/status/"+stage+"/nodekeys", field=hostname)}}'
 # Ports
 nim_waku_p2p_tcp_port: 30303
 nim_waku_p2p_udp_port: 30303
 nim_waku_metrics_port: 8008
 nim_waku_rpc_tcp_port: 8545
 nim_waku_rpc_tcp_addr: 0.0.0.0
-
 # Limits
 nim_waku_p2p_max_connections: 150
 nim_waku_store_capacity: 10000
-
 # Peer connecting
 nim_waku_connect_consul_service_names: ['{{ nim_waku_cont_name }}', 'nim-waku-bridge']
 nim_waku_connect_rpc_port: '{{ nim_waku_rpc_tcp_port }}'
