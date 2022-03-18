@@ -17,6 +17,7 @@ module "hosts" {
 
   /* firewall */
   open_tcp_ports = [
+    "9000",  /* discovery v5 */
     "30303", /* p2p main */
   ]
 }

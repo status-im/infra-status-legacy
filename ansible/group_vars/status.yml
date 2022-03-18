@@ -18,6 +18,10 @@ nim_waku_store_capacity: 10000
 # Peer connecting
 nim_waku_connect_consul_service_names: ['{{ nim_waku_cont_name }}', 'nim-waku-bridge']
 nim_waku_connect_rpc_port: '{{ nim_waku_rpc_tcp_port }}'
+# Discovery V5
+nim_waku_disc_v5_enabled: true
+nim_waku_disc_v5_enr_auto_update: true
+nim_waku_disc_v5_port: 9000
 
 # Open LibP2P Ports
 open_ports_default_comment: '{{ nim_waku_cont_name }}'
@@ -26,5 +30,6 @@ open_ports_default_chain: 'SERVICES'
 open_ports_list:
   - { port: '{{ nim_waku_p2p_tcp_port }}' }
   - { port: '{{ nim_waku_p2p_udp_port }}', protocol: 'udp' }
+  - { port: '{{ nim_waku_disc_v5_port }}', protocol: 'udp' }
   - { port: '{{ nim_waku_metrics_port }}', chain: 'VPN', ipset: 'metrics.hq' }
   - { port: '{{ nim_waku_rpc_tcp_port }}', chain: 'VPN', ipset: '{{ env }}.{{ stage }}' }
