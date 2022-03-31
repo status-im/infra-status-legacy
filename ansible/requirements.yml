@@ -21,7 +21,7 @@
 
 - name: consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
-  version: 7ee51839e6a032e6ca27dfb00951e897b5385609
+  version: 2b3d4e53856d6cc91ae5c5a342fd12f2bb96aa88
   scm: git
 
 - name: nim-waku

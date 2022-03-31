@@ -7,6 +7,7 @@ This repo defines infrastructure for main [Status](http://status.im/) fleet runn
 Jenkins CI builds can be used to build and deploy new Docker images:
 
 * `status.test` - https://ci.status.im/job/nim-waku/job/deploy-status-test/
+* `status.prod` - https://ci.status.im/job/nim-waku/job/deploy-status-prod/
 
 # Repo Usage
 
