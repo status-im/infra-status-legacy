@@ -1,3 +1,4 @@
+---
 - name: Update and upgrade apt packages
   gather_facts: false
   hosts: all
@@ -8,9 +9,10 @@
         upgrade: true
         update_cache: true
         cache_valid_time: 86400
-    - name: Remove unused packages
-      apt:
-        autoremove: true
       register: packages
     - reboot:
       when: packages.changed
+    - name: Remove unused packages
+      apt:
+        autoremove: true
+        autoclean: true
