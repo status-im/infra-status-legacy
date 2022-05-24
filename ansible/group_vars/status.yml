@@ -22,6 +22,10 @@ nim_waku_connect_rpc_port: '{{ nim_waku_rpc_tcp_port }}'
 nim_waku_disc_v5_enabled: true
 nim_waku_disc_v5_enr_auto_update: true
 nim_waku_disc_v5_port: 9000
+# Consul Service
+nim_waku_consul_success_before_passing: '{{ (stage == "prod") | ternary(2, 4) }}'
+nim_waku_consul_failures_before_warning: '{{ (stage == "prod") | ternary(1, 2) }}'
+nim_waku_consul_failures_before_critical: '{{ (stage == "prod") | ternary(4, 10) }}'
 
 # Open LibP2P Ports
 open_ports_default_comment: '{{ nim_waku_cont_name }}'

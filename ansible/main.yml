@@ -18,6 +18,7 @@
 
 - name: Configure Waku Nodes
   hosts: status
+  serial: '{{ serial|default(3) }}'
   roles:
     - { role: open-ports,       tags: open-ports }
     - { role: swap-file,        tags: swap-file  }
