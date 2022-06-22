@@ -17,9 +17,6 @@ nim_waku_p2p_max_connections: 150
 # SQLite store
 nim_waku_sqlite_store: true
 nim_waku_sqlite_retention_time: 2592000 # 30 days
-# Peer connecting
-nim_waku_connect_consul_service_names: ['{{ nim_waku_cont_name }}', 'nim-waku-bridge']
-nim_waku_connect_rpc_port: '{{ nim_waku_rpc_tcp_port }}'
 # Discovery V5
 nim_waku_disc_v5_enabled: true
 nim_waku_disc_v5_enr_auto_update: true
@@ -28,6 +25,10 @@ nim_waku_disc_v5_port: 9000
 nim_waku_consul_success_before_passing: '{{ (stage == "prod") | ternary(2, 4) }}'
 nim_waku_consul_failures_before_warning: '{{ (stage == "prod") | ternary(1, 2) }}'
 nim_waku_consul_failures_before_critical: '{{ (stage == "prod") | ternary(4, 10) }}'
+
+# Peer connecting
+waku_peers_consul_service_names: ['{{ nim_waku_cont_name }}', 'nim-waku-bridge']
+waku_peers_rpc_port: '{{ nim_waku_rpc_tcp_port }}'
 
 # Open LibP2P Ports
 open_ports_default_comment: '{{ nim_waku_cont_name }}'
