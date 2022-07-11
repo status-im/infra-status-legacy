@@ -1,4 +1,7 @@
 ---
+swap_file_size_mb: 2048
+
+# Nim-Waku
 nim_waku_cont_tag: 'deploy-status-{{ stage }}'
 nim_waku_cont_name: 'nim-waku'
 nim_waku_dns4_domain_name: '{{ dns_entry }}'
