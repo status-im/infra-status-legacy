@@ -36,5 +36,5 @@
 
 - name: systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 4ad0a9bfb57fcc1c1e7322c2a2293e726edb98f7
+  version: ddb42bd2d8b28d0f17f30a8ea2a1672d83714487
   scm: git
