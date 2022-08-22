@@ -12,6 +12,7 @@ nim_waku_node_key: '{{lookup("bitwarden", "fleets/status/"+stage+"/nodekeys", fi
 # Ports
 nim_waku_p2p_tcp_port: 30303
 nim_waku_p2p_udp_port: 30303
+nim_waku_websock_port: 443
 nim_waku_metrics_port: 8008
 nim_waku_rpc_tcp_port: 8545
 nim_waku_rpc_tcp_addr: 0.0.0.0
@@ -24,6 +25,13 @@ nim_waku_sqlite_retention_time: 1209600 # 14 days
 nim_waku_disc_v5_enabled: true
 nim_waku_disc_v5_enr_auto_update: true
 nim_waku_disc_v5_port: 9000
+# Websockets
+nim_waku_websocket_enabled: true
+nim_waku_websocket_secure_enabled: true
+nim_waku_websocket_domain: '{{ dns_entry }}'
+nim_waku_websocket_ssl_dir: '/etc/letsencrypt'
+nim_waku_websocket_ssl_cert: '/etc/letsencrypt/live/{{ nim_waku_websocket_domain }}/fullchain.pem'
+nim_waku_websocket_ssl_key: '/etc/letsencrypt/live/{{ nim_waku_websocket_domain }}/privkey.pem'
 # Consul Service
 nim_waku_consul_success_before_passing: '{{ (stage == "prod") | ternary(2, 4) }}'
 nim_waku_consul_failures_before_warning: '{{ (stage == "prod") | ternary(1, 2) }}'
@@ -37,13 +45,22 @@ waku_peers_consul_services:
   - { name: '{{ nim_waku_cont_name }}', env: '{{ env }}',  stage: '{{ stage }}' }
   - { name: 'nim-waku-bridge',          env: '{{ env }}',  stage: '{{ stage }}' }
 
+# LetsEncrypt via Certbot
+certbot_docker_enabled: true
+certbot_admin_email: 'devops@status.im'
+certbot_containers_to_stop: ['websockify']
+certbot_certs:
+  - domains: [ '{{ nim_waku_websocket_domain }}' ]
+
 # Open LibP2P Ports
 open_ports_default_comment: '{{ nim_waku_cont_name }}'
 open_ports_default_protocol: 'tcp'
 open_ports_default_chain: 'SERVICES'
 open_ports_list:
+  - { port: '80', comment: 'Certbot verification' }
   - { port: '{{ nim_waku_p2p_tcp_port }}' }
   - { port: '{{ nim_waku_p2p_udp_port }}', protocol: 'udp' }
   - { port: '{{ nim_waku_disc_v5_port }}', protocol: 'udp' }
+  - { port: '{{ nim_waku_websock_port }}' }
   - { port: '{{ nim_waku_metrics_port }}', chain: 'VPN', ipset: 'metrics.hq' }
   - { port: '{{ nim_waku_rpc_tcp_port }}', chain: 'VPN', ipset: '{{ env }}.{{ stage }}' }

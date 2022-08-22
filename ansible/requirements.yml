@@ -21,7 +21,7 @@
 
 - name: consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
-  version: 0cddfb4dd696e759a0a95c4753e7b95aeedc4242
+  version: 7653d06cfc4d2613ee14bf637d38d98b0201864f
   scm: git
 
 - name: nim-waku
@@ -37,4 +37,9 @@
 - name: systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
   version: 0cc94695f3dada39213a87fbe923cd90e2a7d2c2
+  scm: git
+
+- name: certbot
+  src: git@github.com:status-im/infra-role-certbot.git
+  version: a0f3dc76f2f07ed6857312da1f559db52f9781a1
   scm: git
