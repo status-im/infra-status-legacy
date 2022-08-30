@@ -43,7 +43,8 @@ waku_peers_rpc_timeout: 20
 waku_peers_rpc_retries: 5
 waku_peers_consul_services:
   - { name: '{{ nim_waku_cont_name }}', env: '{{ env }}',  stage: '{{ stage }}' }
-  - { name: 'nim-waku-bridge',          env: '{{ env }}',  stage: '{{ stage }}' }
+  # Temporarily disabled bridge. https://github.com/status-im/infra-status/issues/14
+  #- { name: 'nim-waku-bridge',          env: '{{ env }}',  stage: '{{ stage }}' }
 
 # LetsEncrypt via Certbot
 certbot_docker_enabled: true
