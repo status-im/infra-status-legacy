@@ -20,6 +20,14 @@
             type: 'tcp'
             tcp: 'localhost:{{ nim_waku_bridge_devp2p_port }}'
 
+      - id:   '{{ nim_waku_bridge_cont_name }}-enr'
+        name: '{{ nim_waku_bridge_cont_name }}-enr'
+        port: '{{ nim_waku_bridge_libp2p_port }}'
+        address: '{{ ansible_host }}'
+        tags: ['env:{{ env }}', 'stage:{{ stage }}', 'nim', 'waku', 'enr']
+        meta:
+          node_enode: '{{ nim_waku_bridge_libp2p_enr_uri | default("unknown") }}'
+
       - id: '{{ nim_waku_bridge_cont_name }}-metrics'
         name: '{{ nim_waku_bridge_cont_name }}-metrics'
         port: '{{ nim_waku_bridge_metrics_port }}'
