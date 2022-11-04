@@ -19,9 +19,8 @@ nim_waku_rpc_tcp_port: 8545
 nim_waku_rpc_tcp_addr: 0.0.0.0
 # Limits
 nim_waku_p2p_max_connections: 150
-# SQLite store
-nim_waku_sqlite_store: true
-nim_waku_sqlite_retention_time: '{{ (stage == "test") | ternary(1209600, 2592000) }}' # 14 or 30 days
+# Store
+nim_waku_store_message_retention_policy: '{{ (stage == "test") | ternary("time:1209600", "time:2592000") }}' # 14 or 30 days
 # DNS Discovery
 nim_waku_dns_disc_enabled: true
 nim_waku_dns_disc_url: 'enrtree://AOGECG2SPND25EEFMAJ5WF3KSGJNSGV356DSTL2YVLLZWIV6SAYBM@{{ stage }}.nodes.status.im'
