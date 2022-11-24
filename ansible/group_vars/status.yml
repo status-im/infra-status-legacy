@@ -18,7 +18,7 @@ nim_waku_metrics_port: 8008
 nim_waku_rpc_tcp_port: 8545
 nim_waku_rpc_tcp_addr: 0.0.0.0
 # Limits
-nim_waku_p2p_max_connections: 150
+nim_waku_p2p_max_connections: 200
 # Store
 nim_waku_store_message_retention_policy: '{{ (stage == "test") | ternary("time:1209600", "time:2592000") }}' # 14 or 30 days
 # DNS Discovery
