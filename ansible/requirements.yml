@@ -1,32 +1,27 @@
 ---
-- name: open-ports
-  src: git@github.com:status-im/infra-role-open-ports.git
-  version: 24dc30dbdf85e6758cb6924074b2f7a0f4541524
-  scm: git
-
-- name: swap-file
-  src: git@github.com:status-im/infra-role-swap-file.git
-  version: 3fb0fb8d313ab388df1b38d516e2ff88b72a2cf7
-  scm: git
-
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: bb2137702c9b29ff2e9488804f468bb5d9570894
   scm: git
 
 - name: infra-role-wireguard
   src: git@github.com:status-im/infra-role-wireguard.git
-  version: 6c83e0bdcecba772e5c652c89e1995865d14c662
+  scm: git
+
+- name: open-ports
+  src: git@github.com:status-im/infra-role-open-ports.git
+  scm: git
+
+- name: swap-file
+  src: git@github.com:status-im/infra-role-swap-file.git
   scm: git
 
 - name: consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
-  version: 4849a3c9d7f2045669880e4e17eeb71980b2e4d0
   scm: git
 
 - name: nim-waku
   src: git@github.com:status-im/infra-role-nim-waku.git
-  version: 734556b5ceb55a65a352c571e84fb151b1563e04
+  version: 92ed2b5ef1065927931b0ce054c613092fac87a1
   scm: git
 
 - name: waku-peers
@@ -36,10 +31,10 @@
 
 - name: systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 0cc94695f3dada39213a87fbe923cd90e2a7d2c2
+  version: 24b9f3c82b0f2cc89211e40b0abce07e983e67c1
   scm: git
 
 - name: certbot
   src: git@github.com:status-im/infra-role-certbot.git
-  version: a0f3dc76f2f07ed6857312da1f559db52f9781a1
+  version: aa7daf1fe135375bb4295742e3c1566ee4aeffba
   scm: git
