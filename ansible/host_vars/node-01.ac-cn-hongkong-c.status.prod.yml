@@ -1,0 +1,4 @@
+---
+# Temporarily enabled for work on Communities DApp.
+# https://github.com/status-im/community-dapp/issues/23
+nim_waku_protocols_enabled: ["relay", "lightpush", "store"]
