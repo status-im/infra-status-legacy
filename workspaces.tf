@@ -15,6 +15,8 @@ locals {
 
       /* scaling */
       hosts_count = 1
+      data_volume_size = 40
+      ac_data_volume_type = "cloud_ssd"
       do_type = "s-1vcpu-2gb"        /* DigitalOcean */
       ac_type = "ecs.t5-lc1m2.small" /* Alibaba Cloud */
       gc_type = "g1-small"           /* Google Cloud */
@@ -22,7 +24,10 @@ locals {
 
     # Inherits defaults.
     test = { hosts_count = 1 }
-    prod = { hosts_count = 2 }
+    prod = {
+      hosts_count = 2
+      data_volume_size = 60
+    }
   }
 }
 
