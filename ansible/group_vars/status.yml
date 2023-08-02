@@ -11,7 +11,7 @@ nim_waku_protocols_enabled: '{{ ["relay", "store"] if stage == "prod" else ["rel
 # Node Key
 nim_waku_node_key: '{{lookup("bitwarden", "fleets/status/"+stage+"/nodekeys", field=hostname)}}'
 # Topics
-nim_waku_topics: '{{ ["/waku/2/default-waku/proto"] if stage == "prod" else ["/waku/2/default-waku/proto", "/waku/2/status-signed-test-1"] }}'
+nim_waku_pubsub_topics: '{{ ["/waku/2/default-waku/proto"] if stage == "prod" else ["/waku/2/default-waku/proto", "/waku/2/status-signed-test-1"] }}'
 nim_waku_protected_topics: '{{ [] if stage == "prod" else ["/waku/2/status-signed-test-1:04070335f90e017ec1d7cb9a8e53d084dcf2c937cccb4272ed902881641613c6e0d46cf5531eee7ff8076616a2b8ac3436f71568f7a7032478fba3cac04c90e4e6"] }}'
 # Ports
 nim_waku_p2p_tcp_port: 30303

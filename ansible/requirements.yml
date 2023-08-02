@@ -21,7 +21,7 @@
 
 - name: nim-waku
   src: git@github.com:status-im/infra-role-nim-waku.git
-  version: eed1a10ccea90c3b33af845ba54334530467a625
+  version: 0de15086cd763305419d637415d7a3b5200e0cb8
   scm: git
 
 - name: waku-peers
