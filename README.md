@@ -1,13 +1,13 @@
 # Description
 
-This repo defines infrastructure for main [Status](http://status.im/) fleet running [nim-waku](https://github.com/status-im/nim-waku) nodes.
+This repo defines infrastructure for main [Status](http://status.im/) fleet running [nim-waku](https://github.com/waku-org/nwaku) nodes.
 
 # Continuous Integration
 
 Jenkins CI builds can be used to build and deploy new Docker images:
 
-* `status.test` - https://ci.status.im/job/nim-waku/job/deploy-status-test/
-* `status.prod` - https://ci.status.im/job/nim-waku/job/deploy-status-prod/
+* `status.test` - https://ci.infra.status.im/job/nim-waku/job/deploy-status-test/
+* `status.prod` - https://ci.infra.status.im/job/nim-waku/job/deploy-status-prod/
 
 # Repo Usage
 
