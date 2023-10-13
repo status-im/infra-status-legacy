@@ -7,7 +7,7 @@ nim_waku_cont_name: 'nim-waku'
 nim_waku_log_level: 'debug'
 nim_waku_dns4_domain_name: '{{ dns_entry }}'
 # Protocols
-nim_waku_protocols_enabled: '{{ ["relay", "filter", "store"] if stage == "prod" else ["relay", "filter", "lightpush", "store"] }}'
+nim_waku_protocols_enabled: ['relay', 'filter', 'lightpush', 'store']
 # Node Key
 nim_waku_node_key: '{{lookup("bitwarden", "fleets/status/"+stage+"/nodekeys", field=hostname)}}'
 # Topics
