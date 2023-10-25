@@ -23,7 +23,8 @@ nim_waku_rpc_tcp_addr: 0.0.0.0
 # Limits
 nim_waku_p2p_max_connections: 200
 # Store
-nim_waku_store_message_retention_policy: '{{ (stage == "test") | ternary("time:1209600", "time:2592000") }}' # 14 or 30 days
+nim_waku_store_message_retention_policy: '{{ (stage == "test") | ternary("size:15GB", "time:2592000") }}' # 14 or 30 days
+nim_waku_store_vacuum: true
 # DNS Discovery
 nim_waku_dns_disc_enabled: true
 nim_waku_dns_disc_url_map:
