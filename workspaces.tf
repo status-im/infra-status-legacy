@@ -26,7 +26,7 @@ locals {
     test = { hosts_count = 1 }
     prod = {
       hosts_count = 2
-      data_volume_size = 80
+      data_volume_size = 100
     }
   }
 }
