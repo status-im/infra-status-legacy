@@ -2,3 +2,4 @@
 # Image built with 'chronicles_enabled_topics:"waku\ node":TRACE'.
 # https://ci.infra.status.im/job/nim-waku/job/deploy-status-prod-trace/
 nim_waku_cont_tag: 'deploy-status-{{ stage }}-trace'
+nim_waku_log_level: 'trace'
