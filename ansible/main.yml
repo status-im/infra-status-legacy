@@ -10,7 +10,7 @@
       changed_when: false
 
 - name: Configure Waku Nodes
-  hosts: status
+  hosts: status-node
   serial: '{{ serial|default(3) }}'
   roles:
     - { role: open-ports,       tags: open-ports }

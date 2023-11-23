@@ -2,7 +2,7 @@ module "node" {
   source = "github.com/status-im/infra-tf-multi-provider"
 
   /* node type */
-  group  = "status"
+  group  = "status-node"
   env    = local.ws.env
   stage  = local.ws.stage
   domain = var.domain
