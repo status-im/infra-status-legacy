@@ -36,5 +36,5 @@
 
 - name: infra-role-postgres-ha
   src: git@github.com:status-im/infra-role-postgres-ha.git
-  version: 6b296be19685de096e8f69f66fc35375b74870e8
+  version: cedacfca7ace3a03eecfd5c6d4b0f1230f655eb6
   scm: git
