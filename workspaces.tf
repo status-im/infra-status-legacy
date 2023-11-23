@@ -19,7 +19,12 @@ locals {
       node_ac_type = "ecs.t5-lc1m2.small" /* Alibaba Cloud */
       node_gc_type = "g1-small"           /* Google Cloud */
       node_ac_data_vol_type = "cloud_ssd"
-      node_data_vol_size = 40
+      node_data_vol_size = 40 /* TODO Remove in favor of DB hosts. */
+
+      /* PostgreSQL */
+      db_count     = 1
+      db_do_type   = "s-1vcpu-2gb"        /* DigitalOcean */
+      db_data_vol_size = 40
     }
 
     # Inherits defaults.
@@ -27,6 +32,7 @@ locals {
     prod = {
       node_count = 2
       node_data_vol_size = 350
+      db_data_vol_size = 300
     }
   }
 }
