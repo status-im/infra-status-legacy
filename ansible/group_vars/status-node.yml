@@ -28,7 +28,7 @@ nim_waku_store_message_db_name: 'nim-waku'
 nim_waku_store_message_db_user: 'nim-waku'
 nim_waku_store_message_db_pass: '{{lookup("bitwarden", "fleets/status/"+stage+"/db/nim-waku")}}'
 nim_waku_store_message_db_url: 'postgres://{{ nim_waku_store_message_db_user}}:{{ nim_waku_store_message_db_pass}}@{{ nim_waku_store_message_db_host }}:5432/{{nim_waku_store_message_db_name}}'
-nim_waku_store_message_retention_policy: '{{ (stage == "test") | ternary("size:15GB", "time:2592000") }}' # 14 or 30 days
+nim_waku_store_message_retention_policy: '{{ (stage == "test") | ternary("capacity:20000000", "time:2592000") }}' # 14 or 30 days
 # Requires too much disk and takes too long.
 nim_waku_store_vacuum: false
 # DNS Discovery
