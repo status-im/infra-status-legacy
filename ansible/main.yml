@@ -17,3 +17,11 @@
     - { role: infra-role-swap-file,   tags: swap-file   }
     - { role: infra-role-certbot,     tags: certbot     }
     - { role: infra-role-nim-waku,    tags: nim-waku    }
+
+- name: Configure PostgreSQL DB
+  hosts: status-db
+  serial: '{{ serial|default(3) }}'
+  roles:
+    - { role: infra-role-open-ports,  tags: open-ports  }
+    - { role: infra-role-swap-file,   tags: swap-file   }
+    - { role: infra-role-postgres-ha, tags: postgres-ha }

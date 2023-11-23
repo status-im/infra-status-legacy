@@ -1,0 +1,22 @@
+---
+postgres_ha_service_name: 'nim-waku-db'
+postgres_ha_cont_image: 'postgres:15.1-alpine'
+postgres_ha_cont_port: 5432
+
+postgres_ha_is_master: true
+postgres_ha_replica_enabled: false
+
+postgres_ha_admin_user: 'postgres'
+postgres_ha_admin_pass: '{{lookup("bitwarden", "fleets/status/"+stage+"/db/admin")}}'
+
+postgres_ha_databases:
+  - name: 'nim-waku'
+    user: 'nim-waku'
+    pass: '{{lookup("bitwarden", "fleets/status/"+stage+"/db/nim-waku")}}'
+
+# Open PostgreSQL Port
+open_ports_default_comment: '{{ postgres_ha_service_name }}'
+open_ports_default_chain: 'SERVICES'
+open_ports_default_protocol: 'tcp'
+open_ports_list:
+  - { port: '{{ postgres_ha_cont_port }}', ipset: '{{ env }}.{{ stage }}' }
