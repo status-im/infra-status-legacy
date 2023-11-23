@@ -7,29 +7,34 @@
   src: git@github.com:status-im/infra-role-wireguard.git
   scm: git
 
-- name: open-ports
+- name: infra-role-open-ports
   src: git@github.com:status-im/infra-role-open-ports.git
   scm: git
 
-- name: swap-file
+- name: infra-role-swap-file
   src: git@github.com:status-im/infra-role-swap-file.git
   scm: git
 
-- name: consul-service
+- name: infra-role-consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
   scm: git
 
-- name: nim-waku
-  src: git@github.com:status-im/infra-role-nim-waku.git
-  version: 471d21c00e694268970afdab20844bf1854e3221
-  scm: git
-
-- name: systemd-timer
+- name: infra-role-systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
   version: 8fe1d6a85fa0f4020938107a39d09a1db51cecfb
   scm: git
 
-- name: certbot
+- name: infra-role-nim-waku
+  src: git@github.com:status-im/infra-role-nim-waku.git
+  version: 304caa5d6af127042186380168e39d315cbb61a4
+  scm: git
+
+- name: infra-role-certbot
   src: git@github.com:status-im/infra-role-certbot.git
   version: 41e768fe2e9212366c6a33aa8c2e30d0b2832e80
+  scm: git
+
+- name: infra-role-postgres-ha
+  src: git@github.com:status-im/infra-role-postgres-ha.git
+  version: 6b296be19685de096e8f69f66fc35375b74870e8
   scm: git
