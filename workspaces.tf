@@ -13,20 +13,20 @@ locals {
       env   = "status"
       stage = terraform.workspace
 
-      /* scaling */
-      hosts_count = 1
-      data_volume_size = 40
-      ac_data_volume_type = "cloud_ssd"
-      do_type = "s-1vcpu-2gb"        /* DigitalOcean */
-      ac_type = "ecs.t5-lc1m2.small" /* Alibaba Cloud */
-      gc_type = "g1-small"           /* Google Cloud */
+      /* Waku nodes */
+      node_count   = 1
+      node_do_type = "s-1vcpu-2gb"        /* DigitalOcean */
+      node_ac_type = "ecs.t5-lc1m2.small" /* Alibaba Cloud */
+      node_gc_type = "g1-small"           /* Google Cloud */
+      node_ac_data_vol_type = "cloud_ssd"
+      node_data_vol_size = 40
     }
 
     # Inherits defaults.
-    test = { hosts_count = 1 }
+    test = {}
     prod = {
-      hosts_count = 2
-      data_volume_size = 350
+      node_count = 2
+      node_data_vol_size = 350
     }
   }
 }
