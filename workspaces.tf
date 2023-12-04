@@ -28,7 +28,9 @@ locals {
     }
 
     # Inherits defaults.
-    test = {}
+    test = {
+      db_do_type   = "s-2vcpu-2gb"
+    }
     prod = {
       node_count = 2
       node_data_vol_size = 350
