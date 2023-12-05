@@ -16,7 +16,7 @@ postgres_ha_databases:
 
 # Open PostgreSQL Port
 open_ports_default_comment: '{{ postgres_ha_service_name }}'
-open_ports_default_chain: 'SERVICES'
+open_ports_default_chain: 'VPN'
 open_ports_default_protocol: 'tcp'
 open_ports_list:
   - { port: '{{ postgres_ha_cont_port }}', ipset: '{{ env }}.{{ stage }}' }
