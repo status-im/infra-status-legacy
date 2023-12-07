@@ -29,7 +29,7 @@ locals {
 
     # Inherits defaults.
     test = {
-      db_do_type   = "s-2vcpu-2gb"
+      db_do_type   = "s-6vcpu-16gb"
     }
     prod = {
       node_count = 2
