@@ -15,14 +15,6 @@ module "node" {
   ac_type = local.ws["node_ac_type"] /* Alibaba Cloud */
   gc_type = local.ws["node_gc_type"] /* Google Cloud */
 
-  /* data volumes */
-  ac_data_vol_size = local.ws["node_data_vol_size"]
-  do_data_vol_size = local.ws["node_data_vol_size"]
-  gc_data_vol_size = local.ws["node_data_vol_size"]
-
-  /* fix for volume size */
-  ac_data_vol_type = local.ws["node_ac_data_vol_type"]
-
   /* firewall */
   open_tcp_ports = [
     "30303", /* p2p main */

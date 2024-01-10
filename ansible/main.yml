@@ -9,6 +9,14 @@
     - local_action: command ./versioncheck.py
       changed_when: false
 
+- name: Configure PostgreSQL DB
+  hosts: status-db
+  serial: '{{ serial|default(3) }}'
+  roles:
+    - { role: infra-role-open-ports,  tags: open-ports  }
+    - { role: infra-role-swap-file,   tags: swap-file   }
+    - { role: infra-role-postgres-ha, tags: postgres-ha }
+
 - name: Configure Waku Nodes
   hosts: status-node
   serial: '{{ serial|default(3) }}'
@@ -17,11 +25,3 @@
     - { role: infra-role-swap-file,   tags: swap-file   }
     - { role: infra-role-certbot,     tags: certbot     }
     - { role: infra-role-nim-waku,    tags: nim-waku    }
-
-- name: Configure PostgreSQL DB
-  hosts: status-db
-  serial: '{{ serial|default(3) }}'
-  roles:
-    - { role: infra-role-open-ports,  tags: open-ports  }
-    - { role: infra-role-swap-file,   tags: swap-file   }
-    - { role: infra-role-postgres-ha, tags: postgres-ha }

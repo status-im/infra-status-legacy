@@ -16,24 +16,25 @@ locals {
       /* Waku nodes */
       node_count   = 1
       node_do_type = "s-1vcpu-2gb"        /* DigitalOcean */
-      node_ac_type = "ecs.t5-lc1m2.small" /* Alibaba Cloud */
-      node_gc_type = "g1-small"           /* Google Cloud */
-      node_ac_data_vol_type = "cloud_ssd"
-      node_data_vol_size = 40 /* TODO Remove in favor of DB hosts. */
+      node_ac_type = "ecs.t5-lc1m2.small" /* AlibabaCloud */
+      node_gc_type = "g1-small"           /* GoogleCloud  */
 
       /* PostgreSQL */
       db_count     = 1
       db_do_type   = "s-1vcpu-2gb"        /* DigitalOcean */
+      db_ac_type   = "ecs.t5-lc1m2.small" /* AlibabaCloud */
+      db_gc_type   = "g1-small"           /* GoogleCloud  */
+      db_ac_data_vol_type = "cloud_ssd"
       db_data_vol_size = 40
     }
 
     # Inherits defaults.
-    test = {
-      db_do_type   = "s-6vcpu-16gb"
-    }
+    test = {}
     prod = {
+      db_do_type   = "s-2vcpu-4gb"
+      db_ac_type   = "ecs.sn1ne.large"
+      db_do_type   = "c2d-highcpu-2"
       node_count = 2
-      node_data_vol_size = 350
       db_data_vol_size = 300
     }
   }

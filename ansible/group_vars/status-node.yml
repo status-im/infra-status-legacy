@@ -23,7 +23,7 @@ nim_waku_rpc_tcp_addr: 0.0.0.0
 # Limits
 nim_waku_p2p_max_connections: 200
 # Store
-nim_waku_store_message_db_host: 'db-01.do-ams3.status.test.wg'
+nim_waku_store_message_db_host: 'db-01.{{ data_center }}.status.test.wg'
 nim_waku_store_message_db_name: 'nim-waku'
 nim_waku_store_message_db_user: 'nim-waku'
 nim_waku_store_message_db_pass: '{{lookup("bitwarden", "fleets/status/"+stage+"/db/nim-waku")}}'
