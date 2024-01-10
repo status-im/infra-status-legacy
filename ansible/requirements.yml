@@ -21,7 +21,7 @@
 
 - name: infra-role-systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 8fe1d6a85fa0f4020938107a39d09a1db51cecfb
+  version: bfd404dd92642e1d310f8ce40df97fcb9e33be98
   scm: git
 
 - name: infra-role-nim-waku
@@ -31,10 +31,10 @@
 
 - name: infra-role-certbot
   src: git@github.com:status-im/infra-role-certbot.git
-  version: 41e768fe2e9212366c6a33aa8c2e30d0b2832e80
+  version: c7a5afe6a7d76f7c021041ec1e7df4f7e46cf374
   scm: git
 
 - name: infra-role-postgres-ha
   src: git@github.com:status-im/infra-role-postgres-ha.git
-  version: c647a9f57deb791f1be724fe768be7bc9bf64921
+  version: 9fbe3851b902f9873441c2b26a6d3a7e9d1525c7
   scm: git
