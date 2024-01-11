@@ -31,10 +31,10 @@ locals {
     # Inherits defaults.
     test = {}
     prod = {
-      db_do_type   = "s-2vcpu-4gb"
-      db_ac_type   = "ecs.sn1ne.large"
-      db_do_type   = "c2d-highcpu-2"
       node_count = 2
+      db_do_type = "s-2vcpu-4gb"
+      db_ac_type = "ecs.sn1ne.large"
+      db_gc_type = "c2d-highcpu-2"
       db_data_vol_size = 300
     }
   }
