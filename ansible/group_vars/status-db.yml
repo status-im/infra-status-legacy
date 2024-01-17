@@ -6,8 +6,8 @@ postgres_ha_cont_port: 5432
 postgres_ha_is_master: true
 postgres_ha_replica_enabled: false
 # Backup
-postgres_ha_backup: '{{ stage == "prod" }}'
-postgres_ha_backup_enabled: '{{ stage == "prod" }}'
+postgres_ha_backup: false
+postgres_ha_backup_enabled: false
 # Admin
 postgres_ha_admin_user: 'postgres'
 postgres_ha_admin_pass: '{{lookup("bitwarden", "fleets/status/"+stage+"/db/admin")}}'
