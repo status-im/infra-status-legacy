@@ -21,6 +21,7 @@ nim_waku_metrics_port: 8008
 nim_waku_rpc_tcp_port: 8545
 nim_waku_rpc_tcp_addr: 0.0.0.0
 # Limits
+nim_waku_max_msg_size: '1024KiB'
 nim_waku_p2p_max_connections: 200
 # Store
 nim_waku_store_message_db_host: 'db-01.{{ data_center }}.status.{{ stage }}.wg'
