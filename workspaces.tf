@@ -25,7 +25,7 @@ locals {
       db_ac_type   = "ecs.t5-lc1m2.small" /* AlibabaCloud */
       db_gc_type   = "g1-small"           /* GoogleCloud  */
       db_ac_data_vol_type = "cloud_ssd"
-      db_data_vol_size = 40
+      db_data_vol_size = 100
     }
 
     # Inherits defaults.

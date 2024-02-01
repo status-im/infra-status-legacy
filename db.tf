@@ -18,8 +18,8 @@ module "db" {
 
   /* data volumes */
   do_data_vol_size = local.ws["db_data_vol_size"]
-  ac_root_vol_size = local.ws["db_data_vol_size"]
-  gc_root_vol_size = local.ws["db_data_vol_size"]
+  ac_data_vol_size = local.ws["db_data_vol_size"]
+  gc_data_vol_size = local.ws["db_data_vol_size"]
 
   /* fix for volume size */
   ac_data_vol_type = local.ws["db_ac_data_vol_type"]
