@@ -25,3 +25,4 @@
     - { role: infra-role-swap-file,   tags: swap-file   }
     - { role: infra-role-certbot,     tags: certbot     }
     - { role: infra-role-nim-waku,    tags: nim-waku    }
+    - { role: infra-role-nginx,       tags: nginx       }

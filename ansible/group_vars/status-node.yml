@@ -4,6 +4,8 @@ swap_file_size_mb: 2048
 # Nim-Waku
 nim_waku_cont_tag: 'deploy-status-{{ stage }}'
 nim_waku_cont_name: 'nim-waku'
+nim_waku_cont_vol: '/docker/{{ nim_waku_cont_name }}'
+nim_waku_node_conf_path: '{{ nim_waku_cont_vol }}/conf'
 nim_waku_log_level: 'debug'
 nim_waku_dns4_domain_name: '{{ dns_entry }}'
 # Protocols
@@ -58,6 +60,7 @@ nim_waku_consul_failures_before_critical: '{{ (stage == "prod") | ternary(4, 8) 
 # LetsEncrypt via Certbot
 certbot_docker_enabled: true
 certbot_admin_email: 'devops@status.im'
+certbot_services_to_stop: ['nginx']
 certbot_containers_to_stop: ['{{ nim_waku_cont_name }}']
 certbot_certs:
   - domains: [ '{{ nim_waku_websocket_domain }}' ]
@@ -67,10 +70,23 @@ open_ports_default_comment: '{{ nim_waku_cont_name }}'
 open_ports_default_protocol: 'tcp'
 open_ports_default_chain: 'SERVICES'
 open_ports_list:
-  - { port: '80', comment: 'Certbot verification' }
+  - { port: '80', comment: 'Nginx and Certbot' }
   - { port: '{{ nim_waku_p2p_tcp_port }}' }
   - { port: '{{ nim_waku_p2p_udp_port }}', protocol: 'udp' }
   - { port: '{{ nim_waku_disc_v5_port }}', protocol: 'udp' }
   - { port: '{{ nim_waku_websock_port }}' }
   - { port: '{{ nim_waku_metrics_port }}', chain: 'VPN', ipset: 'metrics.hq' }
   - { port: '{{ nim_waku_rpc_tcp_port }}', chain: 'VPN', ipset: '{{ env }}.{{ stage }}' }
+
+# Public Config file access
+nginx_sites:
+  nim_waku_config:
+    - listen 80 default_server
+    - location = / {
+        return 302 /config.toml;
+      }
+    - location = /config.toml {
+        root {{ nim_waku_node_conf_path }};
+        try_files /config.toml =404;
+        types { text/plain toml; }
+      }
