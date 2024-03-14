@@ -6,7 +6,6 @@ module "db" {
   group  = "status-db"
   env    = local.ws.env
   stage  = local.ws.stage
-  domain = var.domain
 
   /* scaling */
   host_count = local.ws["db_count"]

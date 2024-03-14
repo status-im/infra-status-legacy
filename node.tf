@@ -5,7 +5,6 @@ module "node" {
   group  = "status-node"
   env    = local.ws.env
   stage  = local.ws.stage
-  domain = var.domain
 
   /* scaling */
   host_count = local.ws["node_count"]
