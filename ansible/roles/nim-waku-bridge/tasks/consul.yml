@@ -1,7 +1,7 @@
 ---
 
 - name: 'Consul service definition - {{ nim_waku_bridge_cont_name }}'
-  include_role: name=consul-service
+  include_role: name=infra-role-consul-service
   vars:
     consul_config_name: '{{ nim_waku_bridge_cont_name | replace("-", "_") }}'
     consul_services:
