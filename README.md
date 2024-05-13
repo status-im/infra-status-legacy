@@ -2,6 +2,10 @@
 
 This repo defines infrastructure for main [Status](http://status.im/) fleet running [nim-waku](https://github.com/waku-org/nwaku) nodes.
 
+# Dashboard
+
+You can look up current state of the fleet at: https://fleets.waku.org/
+
 # Discovery
 
 DNS `TXT` ENRTree records exist to discover available fleets:
