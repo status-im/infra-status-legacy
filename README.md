@@ -1,3 +1,5 @@
+# :warning: Legacy fleet repository. See `infra-status`.
+
 # Description
 
 This repo defines infrastructure for main [Status](http://status.im/) fleet running [nim-waku](https://github.com/waku-org/nwaku) nodes.
